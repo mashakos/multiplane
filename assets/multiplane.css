@@ -1,0 +1,155 @@
+@charset "UTF-8";
+.depth-1 {
+  top: 81% !important;
+  transform: translateZ(0px) scale(1);
+  animation: depth-anim-1 5s alternate infinite;
+}
+
+@keyframes depth-anim-1 {
+  from {
+    transform: translateZ(0px) scale(1);
+  }
+  to {
+    transform: translateZ(800px) scale(1);
+  }
+}
+.depth-2 {
+  top: -1% !important;
+  transform: translateZ(-200px) scale(1.3076923077);
+  animation: depth-anim-2 5s alternate infinite;
+}
+
+@keyframes depth-anim-2 {
+  from {
+    transform: translateZ(-200px) scale(1.3076923077);
+  }
+  to {
+    transform: translateZ(200px) scale(1.3076923077);
+  }
+}
+.depth-3 {
+  top: 11% !important;
+  transform: translateZ(-400px) scale(1.6153846154);
+  animation: depth-anim-3 5s alternate infinite;
+}
+
+@keyframes depth-anim-3 {
+  from {
+    transform: translateZ(-400px) scale(1.6153846154);
+  }
+  to {
+    transform: translateZ(-133.3333333333px) scale(1.6153846154);
+  }
+}
+.depth-4 {
+  transform: translateZ(-600px) scale(1.9230769231);
+  animation: depth-anim-4 5s alternate infinite;
+}
+
+@keyframes depth-anim-4 {
+  from {
+    transform: translateZ(-600px) scale(1.9230769231);
+  }
+  to {
+    transform: translateZ(-400px) scale(1.9230769231);
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.multiplane {
+  position: relative;
+  width: 1920px;
+  max-width: 100%;
+  aspect-ratio: 16/9;
+  perspective: 650px;
+  overflow: hidden;
+  transition: perspective 0.3s;
+}
+.is-angle .multiplane {
+  overflow: visible;
+}
+.has-no-perspective .multiplane {
+  perspective: 0;
+}
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate3d(0, 0, 0) rotateY(0deg);
+  transition: transform 0.3s;
+  transform-style: preserve-3d;
+}
+.is-angle .wrapper {
+  transform: translate3d(50%, 0, -800px) rotateY(45deg);
+}
+
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform-style: preserve-3d;
+}
+.is-paused .layer {
+  animation-play-state: paused;
+}
+
+.nav {
+  position: fixed;
+  display: flex;
+  justify-content: space-evenly;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: clamp(12px, 2.5vmin, 22px);
+  padding: 1em 0;
+}
+
+.btn {
+  display: block;
+  background-color: #ddd;
+  padding: 0.5em 1.5em;
+  border-radius: 1.5em;
+  border: 0;
+  min-width: 80px;
+  text-decoration: none;
+  text-align: center;
+  color: currentColor;
+}
+.btn:hover {
+  background-color: #eee;
+}
+
+.fa-youtube {
+  font-size: 1.25em;
+}
+
+.btn-45 {
+  font-weight: bold;
+}
+.btn-45::before {
+  content: "45°";
+}
+.is-angle .btn-45::before {
+  content: "0°";
+}
+
+/*# sourceMappingURL=multiplane.css.map */

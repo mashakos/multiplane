@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplane Camera Effect</title>
+    <link rel="stylesheet" href="/assets/multiplane.css">
+</head>
+<body>
+
+<div class="multiplane">
+    <div class="wrapper">
+        <img src="/assets/layer-base.webp" class="layer depth-4">
+        <img src="/assets/layer-middle.webp" class="layer depth-3">
+        <img src="/assets/layer-front.webp" class="layer depth-2">
+    </div>
+</div>
+
+<nav class="nav">
+    <button class="btn btn-45"></button>
+</nav>
+
+<script>
+    const btn45 = document.querySelector('.btn-45');
+    const btnPlayPause = document.querySelector('.btn-play-pause');
+
+    btn45.addEventListener('click', function() {
+        document.body.classList.toggle('is-angle');
+    });
+
+    btnPlayPause.addEventListener('click', function() {
+        document.body.classList.toggle('is-paused');
+        btnPlayPause.classList.toggle('fa-play');
+        btnPlayPause.classList.toggle('fa-pause');
+    });
+</script>
+</body>
+</html>
